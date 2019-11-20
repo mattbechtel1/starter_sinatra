@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head><title>Edit this Contributor</title></head>
+
+<body>
+<h1>Edit <%= @contributor.username %></h1>
+
+<form action="/contributors/<%= @contributor.id %>" method="POST">
+    <input type="hidden" value="PATCH" name="_method">
+    <label for="username">Username:</label>
+    <input type="text" name="username" value=<%= @contributor.username %>>
+    
+    <br>
+    <input type="submit" value="Edit Contributor">
+</form>
+
+<a href='/contributors/<%= @contributor.id %>'>Back to contributor page</a>
+</body>
+</html>

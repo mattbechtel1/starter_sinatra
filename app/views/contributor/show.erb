@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head><title><%= @contributor.username %></title></head>
+
+<body>
+<h1><%= @contributor.username %>'s Edits</h1>
+
+<p><%= @message %></p>
+
+<ul>
+    <% @contributor.contributor_edits.order(created_at: :desc).each do |e| %>
+        <li><a href="\articles\<%= e.article_id %>"><%= e.created_at%>: <%= e.article.title %></a></li>
+    <% end %>
+</ul>
+
+
+<br>
+<form method="POST" action="/contributors/<%= @contributor.id %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Remove this contributor">
+</form>
+
+<br>
+<a href='/contributors/<%= @contributor.id %>/edit'>Edit this Contributor</a>
+<a href='/contributors'>Back to contributor list</a>
+</body>
+</html>

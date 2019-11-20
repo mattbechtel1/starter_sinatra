@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head><title>WikiCuraçao's Contributor List</title></head>
+
+<body>
+<h1>Our Generous Contributors</h1>
+
+<ul>
+    <% @contributors.each do |contributor| %>
+        <li><a href="\contributors\<%= contributor.id %>"><%= contributor.username %></a></li>
+    <% end %>
+</ul>
+
+<br>
+<a href='/'>Back to homepage</a>
+</body>
+</html>
