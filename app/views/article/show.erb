@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head><title><%= @article.title %></title></head>
+
+<body>
+<h1><%= @article.title %></h1>
+
+<br>
+
+
+<p><%=@article.content%></p>
+
+<br>
+<p>Last edited at <%= @article.contributor_edits.last.created_at%></p>
+<a href="/articles/<%=@article.id%>/contributor-edits">See all edits</a>
+<br>
+<form method="POST" action="/articles/<%= @article.id %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Remove this article">
+</form>
+
+<br>
+
+<a href='/articles/<%= @article.id %>/edit'>Edit this Article</a>
+<a href='/articles'>Back to article list</a>
+</body>
+</html>

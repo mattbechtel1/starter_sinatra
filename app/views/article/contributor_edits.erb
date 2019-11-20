@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head><title>WikiCurçao's Article List</title></head>
+
+<body>
+<h1><%=@article.title%> Edits</h1>
+<ul>
+    <% @article.contributor_edits.order(created_at: :desc).each do | e | %>
+        <li><a href="/contributors/<%= e.contributor_id %>"><%= e.created_at%>: <%= e.contributor.username %></a></li>
+    <% end %>
+</ul>
+<br>
+<a href='/articles/<%= @article.id%>'>Back to article</a>
+</body>
+</html>

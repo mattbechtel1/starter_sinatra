@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head><title>WikiCuraçao's Article List</title></head>
+
+<body>
+<h1>Our Lovely Articles</h1>
+
+<ul>
+    <% @articles.each do |article| %>
+        <li><a href="\articles\<%= article.id %>"><%= article.title %></a></li>
+    <% end %>
+</ul>
+
+<br>
+<a href='/'>Back to homepage</a>
+</body>
+</html>
